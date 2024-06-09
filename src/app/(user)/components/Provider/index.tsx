@@ -24,7 +24,8 @@ export default function RootProvider({
     <QueryClientProvider client={client}>
       <Authenticator
         socialProviders={[
-          'google'
+          'google',
+          'facebook'
         ]}
         components={{
           Header: () => (
