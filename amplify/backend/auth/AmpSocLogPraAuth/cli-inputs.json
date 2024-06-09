@@ -34,17 +34,42 @@
     "sharedId": "7cc650d3",
     "resourceName": "AmpSocLogPraAuth",
     "authSelections": "userPoolOnly",
-    "useDefault": "manual",
+    "useDefault": "defaultSocial",
     "usernameAttributes": [
       "email"
     ],
     "userPoolGroups": false,
     "adminQueries": false,
     "triggers": {},
-    "hostedUI": false,
+    "hostedUI": true,
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [],
+    "hostedUIDomainName": "amp-soc-log-pra",
+    "authProvidersUserPool": [
+      "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://amp-soc-log-pra.tsukemonoishi.net/\"],\"LogoutURLs\":[\"https://amp-soc-log-pra.tsukemonoishi.net/\"]}",
+    "authProviders": [],
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "permissions": []
   }
 }

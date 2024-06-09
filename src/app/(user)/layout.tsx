@@ -3,9 +3,9 @@ import { Metadata } from 'next'
 
 import '@/services/amplify/setup'
 
-import Provider from '@/app/components/Provider'
+import Provider from '@/app/(user)/components/Provider'
 
-import Navigation from '../components/Navigation'
+import Navigation from './components/Navigation'
 
 export const metadata: Metadata = {
   title: "Cognito ソーシャルログイン",
