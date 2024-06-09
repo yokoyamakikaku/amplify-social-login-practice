@@ -1,4 +1,4 @@
-import ViewUser from "./components/ViewUser"
+import ViewUser from "../components/ViewUser"
 
 export default function Home() {
   return (

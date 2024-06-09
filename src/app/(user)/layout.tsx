@@ -1,26 +1,26 @@
 import '@aws-amplify/ui-react/styles.css'
 import { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import '@/services/amplify/setup'
-import './global.css'
 
-const inter = Inter({ subsets: ["latin"] })
+import '@/services/amplify/setup'
+
+import Provider from '@/app/components/Provider'
+
+import Navigation from '../components/Navigation'
 
 export const metadata: Metadata = {
   title: "Cognito ソーシャルログイン",
   description: "Cognito のソーシャルログインの検証",
 }
 
-export default function RootLayout({
+export default function UserLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
-      <body className={inter.className}>
-        {children}
-      </body>
-    </html>
+    <Provider>
+      <Navigation />
+      {children}
+    </Provider>
   )
 }
