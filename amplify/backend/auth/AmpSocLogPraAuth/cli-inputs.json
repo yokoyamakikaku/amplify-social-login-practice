@@ -12,8 +12,8 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Your verification code",
-    "emailVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "あなたの検証コード",
+    "emailVerificationMessage": "あなたの検証コードは{####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
@@ -34,7 +34,7 @@
     "sharedId": "7cc650d3",
     "resourceName": "AmpSocLogPraAuth",
     "authSelections": "userPoolOnly",
-    "useDefault": "defaultSocial",
+    "useDefault": "manual",
     "usernameAttributes": [
       "email"
     ],
@@ -66,11 +66,11 @@
       "Google"
     ],
     "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"id\"}},{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "authProviders": [],
     "parentStack": {
       "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://amp-soc-log-pra.tsukemonoishi.net/\"],\"LogoutURLs\":[\"https://amp-soc-log-pra.tsukemonoishi.net/\"]}"
+    "authProviders": [],
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\",\"https://amp-soc-log-pra.tsukemonoishi.net/\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"https://amp-soc-log-pra.tsukemonoishi.net/\"]}"
   }
 }
