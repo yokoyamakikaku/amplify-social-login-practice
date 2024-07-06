@@ -1,6 +1,8 @@
 {
   "version": "1",
   "cognitoConfig": {
+    "identityPoolName": "AmpSocLogPraAuth_identitypool_87b783db",
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "ampsoc7cc650d3",
     "userPoolName": "AmpSocLogPraUserPool",
     "autoVerifiedAttributes": [
@@ -33,7 +35,7 @@
     "userpoolClientSetAttributes": false,
     "sharedId": "7cc650d3",
     "resourceName": "AmpSocLogPraAuth",
-    "authSelections": "userPoolOnly",
+    "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
     "usernameAttributes": [
       "email"
@@ -84,8 +86,10 @@
       "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PreSignUp\",\n    \"lambdaFunctionName\": \"AmpSocLogPraAuthPreSignup\"\n  }\n]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\",\"https://amp-soc-log-pra.tsukemonoishi.net/\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"https://amp-soc-log-pra.tsukemonoishi.net/\"]}",
-    "authProviders": []
+    "authTriggerConnections": [
+      "{\"triggerType\":\"PreSignUp\",\"lambdaFunctionName\":\"AmpSocLogPraAuthPreSignup\"}"
+    ],
+    "authProviders": [],
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\",\"https://amp-soc-log-pra.tsukemonoishi.net/\",\"http://localhost:3000/link\"],\"LogoutURLs\":[\"https://amp-soc-log-pra.tsukemonoishi.net/\"]}"
   }
 }

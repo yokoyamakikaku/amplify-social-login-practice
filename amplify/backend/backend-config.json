@@ -1,4 +1,20 @@
 {
+  "api": {
+    "AmpSocLogPraLinkApi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "AmpSocLogPraLinkApiHandler"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
     "AmpSocLogPraAuth": {
       "customAuth": false,
@@ -46,6 +62,20 @@
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "AmpSocLogPraLinkApiHandler": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "AmpSocLogPraAuth"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -62,6 +92,22 @@
         {
           "category": "function",
           "resourceName": "AmpSocLogPraAuthPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_AmpSocLogPraLinkApiHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AmpSocLogPraLinkApiHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_AmpSocLogPraLinkApiHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AmpSocLogPraLinkApiHandler"
         }
       ]
     }

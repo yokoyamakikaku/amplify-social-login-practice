@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "auth": {
+      "AmpSocLogPraAuth": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

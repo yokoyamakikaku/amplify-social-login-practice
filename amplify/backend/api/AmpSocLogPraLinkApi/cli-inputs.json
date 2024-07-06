@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "paths": {
+    "/exec": {
+      "name": "/exec",
+      "lambdaFunction": "AmpSocLogPraLinkApiHandler",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "guest": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}

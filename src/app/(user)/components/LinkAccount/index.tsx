@@ -1,11 +1,35 @@
+'use client'
+
+import { Button, Flex, Heading, useAuthenticator, useTheme, View } from "@aws-amplify/ui-react"
+
+import { generateLinkAccountUrl } from "./utilities"
+
 export default function LinkAccount () {
+  const theme = useTheme()
+  const { user } = useAuthenticator()
+
+  const linkGoogleAccount = async () => {
+    const url = await generateLinkAccountUrl(user.userId, 'Google')
+    window.location.href = url
+  }
 
   return (
-    <div>
-      <h1>Link Account</h1>
-      <a href=" https://amp-soc-log-pra-main.auth.ap-northeast-1.amazoncognito.com/login?response_type=code&client_id=219n4uhhi4p6gj9prs2k7h7jqn&redirect_uri=http://localhost:3000/
-">https://amp-soc-log-pra-main.auth.ap-northeast-1.amazoncognito.com/login?response_type=code&client_id=219n4uhhi4p6gj9prs2k7h7jqn&redirect_uri=http://localhost:3000/
-      </a>
-    </div>
+    <View
+      maxWidth={theme.breakpoints.values.xl}
+      paddingInline={theme.tokens.space.xl}>
+      <Heading
+        level={3}
+        marginBlockEnd={theme.tokens.space.large}>
+        Link Account
+      </Heading>
+      <View>
+        <Heading level={4}>Google</Heading>
+        <Flex justifyContent="flex-end">
+          <Button variation="primary" onClick={linkGoogleAccount}>
+            Link
+          </Button>
+        </Flex>
+      </View>
+    </View>
   )
 }
