@@ -2,7 +2,17 @@
   "auth": {
     "AmpSocLogPraAuth": {
       "customAuth": false,
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "AmpSocLogPraAuthPreSignup",
+          "triggerProvider": "Cognito"
+        }
+      ],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
         "mfaTypes": [
@@ -28,6 +38,32 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    }
+  },
+  "function": {
+    "AmpSocLogPraAuthPreSignup": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_AmpSocLogPraAuthPreSignup_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AmpSocLogPraAuthPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_AmpSocLogPraAuthPreSignup_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AmpSocLogPraAuthPreSignup"
+        }
+      ]
     }
   }
 }

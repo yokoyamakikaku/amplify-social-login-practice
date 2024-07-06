@@ -9,11 +9,18 @@
       "UnauthRoleName": "amplify-ampsoclogpra-main-a142c-unauthRole",
       "StackName": "amplify-ampsoclogpra-main-a142c",
       "StackId": "arn:aws:cloudformation:ap-northeast-1:693825121436:stack/amplify-ampsoclogpra-main-a142c/9292b550-261d-11ef-8b9f-06d15ee2660b",
-      "AmplifyAppId": "d24z1lq8ncnfzw"
+      "AmplifyAppId": "d24z1lq8ncnfzw",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-ampsoclogpra-main-a142c-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
         "AmpSocLogPraAuth": {}
+      },
+      "function": {
+        "AmpSocLogPraAuthPreSignup": {
+          "deploymentBucketName": "amplify-ampsoclogpra-main-a142c-deployment",
+          "s3Key": "amplify-builds/AmpSocLogPraAuthPreSignup-444763672b6a65304b31-build.zip"
+        }
       }
     }
   }

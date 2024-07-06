@@ -40,7 +40,11 @@
     ],
     "userPoolGroups": false,
     "adminQueries": false,
-    "triggers": {},
+    "triggers": {
+      "PreSignup": [
+        "custom"
+      ]
+    },
     "hostedUI": true,
     "userPoolGroupList": [],
     "serviceName": "Cognito",
@@ -59,7 +63,17 @@
       ]
     },
     "breakCircularDependency": true,
-    "dependsOn": [],
+    "dependsOn": [
+      {
+        "category": "function",
+        "resourceName": "AmpSocLogPraAuthPreSignup",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      }
+    ],
     "hostedUIDomainName": "amp-soc-log-pra",
     "authProvidersUserPool": [
       "Facebook",
@@ -70,7 +84,8 @@
       "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "authProviders": [],
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\",\"https://amp-soc-log-pra.tsukemonoishi.net/\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"https://amp-soc-log-pra.tsukemonoishi.net/\"]}"
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PreSignUp\",\n    \"lambdaFunctionName\": \"AmpSocLogPraAuthPreSignup\"\n  }\n]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\",\"https://amp-soc-log-pra.tsukemonoishi.net/\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"https://amp-soc-log-pra.tsukemonoishi.net/\"]}",
+    "authProviders": []
   }
 }
